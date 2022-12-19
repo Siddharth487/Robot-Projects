@@ -1,0 +1,53 @@
+int pinSpeed =  11;
+ int pinSpeedb =  10;
+ int dir1 = 8;
+ int dir1b = 7;
+ int dir2 = 4;
+ int dir2b = 3; 
+ int motorSpeedOne = 190;
+ int motorSpeedTwo = 170;
+ //int motorSpeed;
+ //int pinY = A0;
+ //int valY;
+ 
+void setup() {
+  pinMode (pinSpeed, OUTPUT);
+  pinMode (dir1, OUTPUT);
+  pinMode (dir2, OUTPUT);
+  pinMode (pinSpeedb, OUTPUT);
+  pinMode (dir1b, OUTPUT);
+  pinMode (dir2b, OUTPUT);
+  //pinMode(pinY, INPUT);
+  Serial.begin(9600);
+
+}
+
+void loop() {
+  //valY=analogRead(pinY);
+  //Serial.println(valY);
+  
+  digitalWrite(dir1, HIGH);
+  digitalWrite(dir2, LOW);
+  analogWrite(pinSpeed, motorSpeedOne);
+  digitalWrite(dir1b, HIGH);
+  digitalWrite(dir2b, LOW);
+  analogWrite(pinSpeedb, motorSpeedTwo);
+  delay(5000);
+  
+  analogWrite(pinSpeed, 0);
+  analogWrite(pinSpeedb, 0);
+  delay(2000);
+  
+  digitalWrite(dir1, LOW);
+  digitalWrite(dir2, HIGH);
+  analogWrite(pinSpeed, motorSpeedOne);
+  digitalWrite(dir1b, LOW);
+  digitalWrite(dir2b, HIGH);
+  analogWrite(pinSpeedb, motorSpeedTwo);
+  delay(5000);
+
+  analogWrite(pinSpeed, 0);
+  analogWrite(pinSpeedb, 0);
+  delay(2000);
+  //
+}
